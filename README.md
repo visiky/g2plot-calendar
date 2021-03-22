@@ -32,8 +32,8 @@ fetch('https://gw.alipayobjects.com/os/antfincdn/nvYn7dOQB9/result.json')
     // 第一次默认渲染
     plot = new P('container', {}, G2PlotCalendar.adaptor, {
       ...G2PlotCalendar.defaultOptions,
-      width: 240,
-      height: 240,
+      width: 800,
+      height: 100,
       data,
     });
 
@@ -61,8 +61,8 @@ plot.update({
       // 第一次默认渲染
       var calendarPlot = new G2Plot.P('calendar-result', {}, G2PlotCalendar.adaptor, {
         ...G2PlotCalendar.defaultOptions,
-        width: 240,
-        height: 240,
+        width: 800,
+        height: 100,
         data,
       });
 
