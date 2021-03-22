@@ -1,6 +1,6 @@
 # G2Plot-Calendar
 
-> G2Plot-Calendar: plugin based on G2Plot v2. [CodeSandbox](https://codesandbox.io/s/g2plot-calendar-p6418).
+> G2Plot-Calendar: plugin based on G2Plot v2. [Live Demo](https://visiky.github.io/g2plot-calendar/), [CodeSandbox](https://codesandbox.io/s/g2plot-calendar-p6418).
 
 [![npm Version](https://img.shields.io/npm/v/g2plot-calendar.svg)](https://www.npmjs.com/package/g2plot-calendar)
 [![npm License](https://img.shields.io/npm/l/g2plot-calendar.svg)](https://www.npmjs.com/package/g2plot-calendar)
