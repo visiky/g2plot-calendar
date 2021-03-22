@@ -6,7 +6,7 @@
 [![npm License](https://img.shields.io/npm/l/g2plot-calendar.svg)](https://www.npmjs.com/package/g2plot-calendar)
 
 
-![image](https://user-images.githubusercontent.com/7856674/103057591-e0b3d100-45da-11eb-8806-9c654bb84615.png)
+![image](https://gw.alipayobjects.com/zos/antfincdn/AVAgk25n1f/158f43ae-9056-4e40-a95c-deb96d24b573.png)
 
 
 ## Install
@@ -51,7 +51,7 @@ plot.update({
 
  - browser
 
-```
+```ts
 <script src="https://unpkg.com/@antv/g2plot@2"></script>
 <script src="https://unpkg.com/g2plot-calendar@1"></script>
 <script>
