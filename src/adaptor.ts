@@ -1,5 +1,5 @@
 import { Params } from '@antv/g2plot';
-import { getCalendarData, getFirstDateOfMonthByWeek } from 'utils';
+import { getCalendarData, getFirstDateOfMonthByWeek } from './utils';
 import { CalendarOptions } from './types';
 
 export const defaultOptions = {
