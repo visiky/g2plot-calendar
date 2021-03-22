@@ -1,6 +1,6 @@
 {
   "name": "g2plot-calendar",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A component like github-contribution-calendar based on AntV/G2Plot.",
   "license": "MIT",
   "main": "lib/index.js",

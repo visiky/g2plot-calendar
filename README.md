@@ -82,6 +82,8 @@ type Datum = {
 export interface CalendarOptions {
   /** 数据 */
   readonly data: Datum[];
+  /** 颜色, 默认: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'] */
+  readonly color: string[];
 }
 ```
 

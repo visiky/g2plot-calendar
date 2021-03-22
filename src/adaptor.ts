@@ -3,6 +3,7 @@ import { getCalendarData, getFirstDateOfMonthByWeek } from './utils';
 import { CalendarOptions } from './types';
 
 export const defaultOptions = {
+  color: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
   tooltip: {
     shared: true,
     showMarkers: false,
@@ -32,11 +33,6 @@ export const defaultOptions = {
   },
 };
 
-/**
- * 默认色彩
- */
-export const DEFAULT_COLORS = ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'];
-
 export function adaptor(params: Params<CalendarOptions>): Params<CalendarOptions> {
   const { chart, options } = params;
 
@@ -48,12 +44,12 @@ export function adaptor(params: Params<CalendarOptions>): Params<CalendarOptions
 
   const geometry = chart.polygon().position('x*day');
 
-  geometry.color('value', color || DEFAULT_COLORS);
+  geometry.color('value', color);
 
   if (typeof style === 'function') {
     geometry.style('value*month*week*day', (value, month, week, day) => style({ value, month, week, day }));
   } else if (style) {
-    geometry.style(style)
+    geometry.style(style);
   }
 
   geometry.shape('', () => ['square', 1, 1]);
