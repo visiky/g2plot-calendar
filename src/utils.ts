@@ -18,7 +18,7 @@ export function getCalendarData(values: Datum[], lastDay?: string, dateFormat = 
   const endDate = dayjs(lastDay);
   const startDate = endDate.subtract(1, 'year');
 
-  const result: (Omit<CalendarDatum, 'date'> & { date: dayjs.Dayjs })[] = [];
+  const result: (Omit<CalendarDatum, 'date' | 'day'> & { date: dayjs.Dayjs; day: number })[] = [];
   for (let date = startDate; !date.isAfter(endDate); ) {
     result.push({
       x: `${date.week() === 1 && date.month() === 11 ? date.year() + 1 : date.year()}-${date.week()}`,
@@ -27,13 +27,19 @@ export function getCalendarData(values: Datum[], lastDay?: string, dateFormat = 
       month: mapDayToMonth(date.month()),
       week: `${date.week()}`,
       date: date,
-      day: mapDayToWeek(date.day()),
+      day: date.day(),
     });
     date = date.add(1, 'day');
   }
 
-  result.sort((a, b) => (a.date.isAfter(b.date) ? 1 : -1));
-  return result.map((d) => ({ ...d, date: d.date.format(dateFormat) }));
+  result.sort((a, b) => {
+    if (Number(a.week) !== Number(b.week) && Number(a.year) !== Number(b.year)) {
+      return a.date.isBefore(b.date) ? -1 : 1;
+    } else {
+      return a.day - b.day;
+    }
+  });
+  return result.map((d) => ({ ...d, date: d.date.format(dateFormat), day: mapDayToWeek(d.day) }));
 }
 
 /**
