@@ -1,5 +1,5 @@
 import { Params } from '@antv/g2plot';
-import { getCalendarData, getFirstDateOfMonthByWeek } from './utils';
+import { DAY_OF_WEEK, getCalendarData, getFirstDateOfMonthByWeek } from './utils';
 import { CalendarOptions } from './types';
 
 export const defaultOptions = {
@@ -40,7 +40,7 @@ export function adaptor(params: Params<CalendarOptions>): Params<CalendarOptions
 
   const calendarData = getCalendarData(data);
 
-  chart.data(calendarData);
+  chart.data(calendarData).scale('day', { values: DAY_OF_WEEK });
 
   const geometry = chart.polygon().position('x*day');
 

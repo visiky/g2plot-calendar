@@ -9,9 +9,10 @@ function mapDayToMonth(month: number) {
   return dayOfMonth[month];
 }
 
+export const DAY_OF_WEEK = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
+
 function mapDayToWeek(day: number) {
-  const dayOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
-  return dayOfWeek[day];
+  return DAY_OF_WEEK[day];
 }
 
 export function getCalendarData(values: Datum[], lastDay?: string, dateFormat = 'YYYY-MM-DD') {
@@ -23,7 +24,7 @@ export function getCalendarData(values: Datum[], lastDay?: string, dateFormat = 
     result.push({
       x: `${date.week() === 1 && date.month() === 11 ? date.year() + 1 : date.year()}-${date.week()}`,
       year: `${date.year()}`,
-      value: values.find((v) => v.date === date.format(dateFormat))?.value || null,
+      value: values.find((v) => v.date === date.format(dateFormat))?.value || 0,
       month: mapDayToMonth(date.month()),
       week: `${date.week()}`,
       date: date,
@@ -32,13 +33,6 @@ export function getCalendarData(values: Datum[], lastDay?: string, dateFormat = 
     date = date.add(1, 'day');
   }
 
-  result.sort((a, b) => {
-    if (Number(a.week) !== Number(b.week) && Number(a.year) !== Number(b.year)) {
-      return a.date.isBefore(b.date) ? -1 : 1;
-    } else {
-      return a.day - b.day;
-    }
-  });
   return result.map((d) => ({ ...d, date: d.date.format(dateFormat), day: mapDayToWeek(d.day) }));
 }
 
